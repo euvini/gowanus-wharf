@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import GSAP1 from '../../components/picture-section-1';
 import GSAP2 from '../../components/picture-section-2';
-import GSAP3 from '../../components/picture-section-3';
-import GSAP4 from '../../components/picture-section-4';
 import BackgroundColors from '../../components/backgroud-colors/index'
 import styles from '../../app/page.module.scss'
 
