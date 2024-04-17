@@ -1,0 +1,10 @@
+@font-face {
+  font-family: "Regular";
+  src: url("../../public/fonts/TWKEverett-Regular.otf");
+}
+
+body {
+  background-color: #e0ded4;
+  margin: 0px;
+  font-family: "Regular";
+}

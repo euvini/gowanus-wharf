@@ -1,0 +1,53 @@
+.navbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: transparent;
+  z-index: 2;
+  backdrop-filter: blur(10px);
+}
+
+.buttonWrapperRight {
+  flex: 1;
+  border-top: 1px solid black;
+  padding: 20px;
+  text-align: left;
+  border-left: 1px solid black;
+}
+
+.buttonWrapperLeft {
+  flex: 1;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  padding: 20px;
+  text-align: right;
+}
+
+.middleButtonWrapper {
+  max-width: 400px;
+  border-top: 1px solid black;
+  padding: 20px;
+}
+
+.button,
+.middleButton {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  color: black;
+  text-decoration: none;
+}
+
+.button:hover,
+.middleButton:hover {
+  background-color: #ddd;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+}
