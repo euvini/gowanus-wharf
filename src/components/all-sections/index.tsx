@@ -52,8 +52,6 @@ export default function PictureSection({ backgroundColorRef }) {
             </div>
             <GSAP1 />
             <GSAP2 />
-            <GSAP3 />
-            <GSAP4 />
         </>
     )
 }

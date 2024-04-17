@@ -7,7 +7,7 @@
   justify-content: space-between;
   background-color: transparent;
   z-index: 2;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(50px);
 }
 
 .buttonWrapperRight {
@@ -36,7 +36,7 @@
 .middleButton {
   display: block;
   text-align: center;
-  padding: 10px;
+  padding: 20px;
   color: black;
   text-decoration: none;
 }

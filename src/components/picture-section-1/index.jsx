@@ -5,13 +5,16 @@ import styles from '../../app/page.module.scss';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Picture1 from '../../../public/medias/1.png';
+import Picture2 from '../../../public/medias/2.png';
+import Picture3 from '../../../public/medias/3.png';
+import Picture4 from '../../../public/medias/BUILDING3.png';
 import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger)
 
 export default function Index() {
     const container = useRef(null);
-    const images = [Picture1];
+    const images = [Picture1, Picture2, Picture3, Picture4];
     const captions = ['caption text max 2 lines lorem ipsum'];
     const lettersRef = useRef([])
     const imagesRef = useRef([])
@@ -26,7 +29,7 @@ export default function Index() {
         timeout = setTimeout(() => {
             imagesRef.current.forEach((_, index) => handleImageClick(index));
             handleBodyClick();
-        }, 500);
+        }, 1000);
     };
 
     useEffect(() => {
@@ -48,9 +51,9 @@ export default function Index() {
                     scrub: true,
                 },
             })
-                .to(title1.current, { y: -50 }, 0)
-                .to(imagesRef.current[1], { y: -100 }, 0)
-                .to(imagesRef.current[2], { y: -255 }, 0)
+                .to(title1.current, { y: -10 }, 0)
+                .to(imagesRef.current[1], { y: -30 }, 0)
+                .to(imagesRef.current[2], { y: -60 }, 0)
             lettersRef.current.forEach((letter, i) => {
                 tl.to(letter, {
                     top: Math.floor(Math.random() * -75) - 25,
@@ -62,7 +65,7 @@ export default function Index() {
     }, [])
 
     const handleImageClick = (index) => {
-        gsap.to(imagesRef.current[index], { scale: 1.10 });
+        gsap.to(imagesRef.current[index], { scale: 1.05 });
         setClicked(true);
         setTimeout(() => {
             gsap.to(imagesRef.current[index], { scale: 1, onComplete: () => setClicked(false) });
@@ -80,7 +83,7 @@ export default function Index() {
     return (
         <div ref={container} className={styles.container}>
             <div className={styles.body} onClick={handleBodyClick} ref={bodyRef}>
-                <h1 ref={title1}>A new language <br /> for living</h1>
+                <h1 ref={title1}>A new language for living</h1>
             </div>
             <div className={styles.imagesSection1}>
                 {

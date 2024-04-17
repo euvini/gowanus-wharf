@@ -4,19 +4,21 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import styles from '../../app/page.module.scss';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Picture2 from '../../../public/medias/2.png';
-import Picture3 from '../../../public/medias/3.png';
+import Picture4 from '../../../public/medias/ROLLERGIF4.png';
+import Picture5 from '../../../public/medias/3.jpg';
+import Picture6 from '../../../public/medias/JENGIF3.png';
 import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger)
 
 export default function Index() {
     const container = useRef(null);
-    const images = [Picture2, Picture3];
+    const images = [Picture4, Picture5, Picture6];
     const captions = ['caption text max', 'caption text max 2 lines lorem ipsum'];
     const [clicked, setClicked] = useState(false);
     const lettersRef = useRef([])
     const imagesRef = useRef([])
+    const bodyRef = useRef(null);
     const title1 = useRef(null);
 
     let timeout;
@@ -25,6 +27,7 @@ export default function Index() {
         clearTimeout(timeout);
         timeout = setTimeout(() => {
             imagesRef.current.forEach((_, index) => handleImageClick(index));
+            handleBodyClick()
         }, 500);
     };
 
@@ -47,9 +50,9 @@ export default function Index() {
                     scrub: true,
                 },
             })
-                .to(title1.current, { y: -50 }, 0)
-                .to(imagesRef.current[1], { y: -100 }, 0)
-                .to(imagesRef.current[2], { y: -255 }, 0)
+                .to(title1.current, { y: -10 }, 0)
+                .to(imagesRef.current[1], { y: -30 }, 0)
+                .to(imagesRef.current[2], { y: -60 }, 0)
             lettersRef.current.forEach((letter, i) => {
                 tl.to(letter, {
                     top: Math.floor(Math.random() * -75) - 25,
@@ -68,8 +71,19 @@ export default function Index() {
         }, 2000);
     };
 
+    const handleBodyClick = () => {
+        gsap.to(bodyRef.current, { scale: 1.10 });
+        setClicked(true);
+        setTimeout(() => {
+            gsap.to(bodyRef.current, { scale: 1, onComplete: () => setClicked(false) });
+        }, 2000);
+    };
+
     return (
         <div ref={container} className={styles.container}>
+            <div className={styles.body} onClick={handleBodyClick} ref={bodyRef}>
+                <h1 ref={title1}>1 legacy neighborhood</h1>
+            </div>
             <div className={styles.imagesSection2}>
                 {
                     images.map((image, i) => {
