@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import GSAP1 from '../../components/picture-section-1';
 import GSAP2 from '../../components/picture-section-2';
