@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 import { useEffect, useRef, useState } from 'react';
+import { animated } from 'react-spring';
 import styles from './page.module.scss';
 import Lenis from '@studio-freight/lenis';
 import GowanusLogoAnimated from '../components/gowanus-logo';
@@ -13,6 +14,7 @@ import React from 'react';
 
 export default function Home() {
     const [elements, setElements] = useState([]);
+    const [scrollEnabled, setScrollEnabled] = useState<boolean>(false);
     const [loading, setLoading] = useState(false);
     const router = useRouter();
     const elementRef = useRef<HTMLDivElement>(null);
@@ -20,6 +22,14 @@ export default function Home() {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [router.refresh]);
+
+    useEffect(() => {
+        const desappear = setTimeout(() => {
+            setScrollEnabled(true);
+        }, 6500);
+
+        return () => clearTimeout(desappear);
+    }, []);
 
     useEffect(() => {
         const lenis = new Lenis();
@@ -65,26 +75,31 @@ export default function Home() {
     };
 
     useEffect(() => {
-        const timer = setTimeout(() => {
+        const desappear = setTimeout(() => {
             window.scrollTo({
                 top: window.innerHeight,
                 behavior: 'smooth'
             });
-        }, 10500);
+        }, 7000);
 
-        return () => clearTimeout(timer);
+        return () => clearTimeout(desappear);
     }, []);
 
     return (
         <main className={styles.main}>
-            <section className={styles.logosection}>
+            <animated.section className={styles.logosection}>
                 <VideoBackground />
-                <GowanusLogoAnimated />
                 <IsCallingLetters />
-            </section>
-            {elements}
-            {loading && <p>Loading...</p>}
-            <BottomNavbar />
+            </animated.section>
+            <GowanusLogoAnimated />
+            {
+                scrollEnabled &&
+                <>
+                    {elements}
+                    {loading && <p>Loading...</p>}
+                    <BottomNavbar />
+                </>
+            }
         </main>
     );
 }

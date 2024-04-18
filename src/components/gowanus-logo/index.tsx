@@ -43,22 +43,22 @@ const GowanusLogoAnimated = () => {
         showNameLogo ? {
             opacity: showNameLogo ? 1 : 0,
             marginTop: showNameLogo ? 0 : -50,
-            delay: 1000,
+            delay: 500,
             onRest: () => {
                 setTimeout(() => {
                     setShowNameLogo(false);
                     setIsFixed(true);
-                }, 1000);
+                }, 500);
             },
         } : {
             opacity: !showNameLogo ? 0 : 1,
             marginTop: !showNameLogo ? -50 : 0,
-            delay: 1000,
+            delay: 500,
             onRest: () => {
                 setTimeout(() => {
                     setShowNameLogo(false);
                     setIsFixed(true);
-                }, 1000);
+                }, 500);
             },
         }
     );
@@ -67,22 +67,22 @@ const GowanusLogoAnimated = () => {
         showNameLogo ? {
             opacity: showNameLogo ? 1 : 0,
             marginBottom: showNameLogo ? 0 : -50,
-            delay: 1000,
+            delay: 500,
             onRest: () => {
                 setTimeout(() => {
                     setShowNameLogo(false);
                     setIsFixed(true);
-                }, 1000);
+                }, 500);
             },
         } : {
             opacity: !showNameLogo ? 0 : 1,
             marginBottom: !showNameLogo ? -50 : 0,
-            delay: 1000,
+            delay: 500,
             onRest: () => {
                 setTimeout(() => {
                     setShowNameLogo(false);
                     setIsFixed(true);
-                }, 1000);
+                }, 500);
             },
         }
     );
@@ -98,7 +98,7 @@ const GowanusLogoAnimated = () => {
         flexDirection: 'column',
         display: 'flex',
         gap: 16,
-        config: { duration: 4000 }
+        config: { duration: 2000 }
     });
 
     useEffect(() => {

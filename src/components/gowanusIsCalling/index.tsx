@@ -7,7 +7,7 @@ export default function IsCallingLetters() {
     useEffect(() => {
         const timeout = setTimeout(() => {
             setIsVisible(false);
-        }, 8000);
+        }, 6000);
 
         return () => clearTimeout(timeout);
     }, []);

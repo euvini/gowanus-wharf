@@ -8,7 +8,7 @@ const BottomNavbar = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setShowNavBar(true)
-        }, 11000);
+        }, 7000);
 
         return () => clearTimeout(timer);
     }, []);

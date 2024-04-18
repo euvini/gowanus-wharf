@@ -4,10 +4,10 @@ import { useState, useLayoutEffect, useRef, useEffect } from "react";
 import styles from '../../app/page.module.scss';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Picture1 from '../../../public/medias/1.png';
-import Picture2 from '../../../public/medias/2.png';
-import Picture3 from '../../../public/medias/3.png';
-import Picture4 from '../../../public/medias/BUILDING3.png';
+import Picture1 from '../../../public/medias/gallery/2024_GW_MVP_13_Architecture.jpg';
+import Picture2 from '../../../public/medias/gallery/2024_GW_MVP_3_Demarcus.png';
+import Picture3 from '../../../public/medias/gallery/2024_GW_MVP_11_Basketball.gif';
+import Picture4 from '../../../public/medias/gallery/2024_GW_MVP_15_GowanusRecce.jpg';
 import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger)
@@ -15,7 +15,7 @@ gsap.registerPlugin(ScrollTrigger)
 export default function Index() {
     const container = useRef(null);
     const images = [Picture1, Picture2, Picture3, Picture4];
-    const captions = ['caption text max 2 lines lorem ipsum'];
+    const captions = ['caption text max', 'caption text max 2 lines lorem ipsum', 'caption text max 2 lines lorem ipsum'];
     const lettersRef = useRef([])
     const imagesRef = useRef([])
     const title1 = useRef(null);
@@ -29,10 +29,10 @@ export default function Index() {
         timeout = setTimeout(() => {
             imagesRef.current.forEach((_, index) => handleImageClick(index));
             handleBodyClick();
-        }, 1000);
+        }, 10);
     };
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         window.addEventListener('scroll', handleScroll);
 
         return () => {
@@ -69,7 +69,7 @@ export default function Index() {
         setClicked(true);
         setTimeout(() => {
             gsap.to(imagesRef.current[index], { scale: 1, onComplete: () => setClicked(false) });
-        }, 2000);
+        }, 1000);
     };
 
     const handleBodyClick = () => {
@@ -77,7 +77,7 @@ export default function Index() {
         setClicked(true);
         setTimeout(() => {
             gsap.to(bodyRef.current, { scale: 1, onComplete: () => setClicked(false) });
-        }, 2000);
+        }, 1000);
     };
 
     return (
@@ -92,7 +92,6 @@ export default function Index() {
                             <div key={`i_${i}`} ref={el => imagesRef.current[i] = el} className={styles.imageContainerSection1} onClick={() => handleImageClick(i)}>
                                 <Image
                                     src={image}
-                                    placeholder="blur"
                                     alt="image"
                                     fill
                                 />

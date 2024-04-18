@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useSpring, animated } from 'react-spring';
 import styles from '../../app/page.module.scss';
+import Image from 'next/image';
+import IntroGIF from '../../../public/medias/gallery/2024_GW_MVP_1_TwinklingWater.gif'
 
 const VideoBackground = () => {
     const [isVisible, setIsVisible] = useState(true);
@@ -23,7 +25,7 @@ const VideoBackground = () => {
 
     const fadeOut = useSpring({
         scale: isVisible ? 1 : 0.5,
-        config: { duration: 3000 },
+        config: { duration: 1500 },
         top: isVisible ? 0 : -topPosition / 3,
 
     });
@@ -31,7 +33,7 @@ const VideoBackground = () => {
     useEffect(() => {
         const timeout = setTimeout(() => {
             setIsVisible(false);
-        }, 6500);
+        }, 5000);
 
         return () => clearTimeout(timeout);
     }, []);
@@ -39,10 +41,10 @@ const VideoBackground = () => {
     return (
         <animated.div style={fadeOut} className={styles.videobackground}>
             <div className={styles.videoFilter} />
-            <video autoPlay loop muted>
-                <source src="/medias/water.mov" type="video/mp4" />
-                This browser do not support HTML5 videos.
-            </video>
+            <Image
+                src={IntroGIF}
+                alt="TwinklingWater"
+            />
         </animated.div>
     );
 };

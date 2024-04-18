@@ -4,9 +4,9 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import styles from '../../app/page.module.scss';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Picture4 from '../../../public/medias/ROLLERGIF4.png';
-import Picture5 from '../../../public/medias/3.jpg';
-import Picture6 from '../../../public/medias/JENGIF3.png';
+import Picture4 from '../../../public/medias/gallery/2024_GW_MVP_14_Rollerwave.gif';
+import Picture5 from '../../../public/medias/gallery/2024_GW_MVP_17_JenLewin.jpg';
+import Picture6 from '../../../public/medias/gallery/2024_GW_MVP_6_JenLewin.gif';
 import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger)
@@ -14,7 +14,7 @@ gsap.registerPlugin(ScrollTrigger)
 export default function Index() {
     const container = useRef(null);
     const images = [Picture4, Picture5, Picture6];
-    const captions = ['caption text max', 'caption text max 2 lines lorem ipsum'];
+    const captions = ['caption text max', 'caption text max 2 lines lorem ipsum', 'caption text max 2 lines lorem ipsum'];
     const [clicked, setClicked] = useState(false);
     const lettersRef = useRef([])
     const imagesRef = useRef([])
@@ -90,7 +90,6 @@ export default function Index() {
                         return <div key={`i_${i}`} ref={el => imagesRef.current[i] = el} className={styles.imageContainerSection2} onClick={() => handleImageClick(i)}>
                             <Image
                                 src={image}
-                                placeholder="blur"
                                 alt="image"
                                 fill
                             />

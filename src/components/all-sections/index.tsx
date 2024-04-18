@@ -8,13 +8,23 @@ import styles from '../../app/page.module.scss'
 export default function PictureSection({ backgroundColorRef }) {
     const [backgrounds, setBackgrounds] = useState([]);
     const [loading, setLoading] = useState(false);
+    const colors = ['#E0DED4', '#DE9280', '#5B9DAD', '#CFBCA4'];
 
     const generateNewBackgroud = () => {
+        const order = [0, 0, 1, 0, 0, 3, 0, 0, 2, 0]; // Ordem desejada das cores
         const newElements = [];
-        for (let i = 0; i < 100; i++) { //renderiza até 100 vezes
+
+        for (let i = 0; i < 100; i++) {
+            const index = order[i % order.length]; // Usa o módulo para repetir a ordem
             newElements.push(
-                <BackgroundColors backgroundColorRef={backgroundColorRef} key={backgrounds.length + i} />);
+                <BackgroundColors
+                    backgroundColorRef={backgroundColorRef}
+                    backgroundColor={colors[index]} // Usa o índice para buscar a cor no array de cores
+                    key={backgrounds.length + i}
+                />
+            );
         }
+
         return newElements;
     };
 
