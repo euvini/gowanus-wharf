@@ -14,16 +14,16 @@
   flex: 1;
   border-top: 1px solid black;
   padding: 20px;
-  text-align: left;
-  border-left: 1px solid black;
+  text-align: center;
+  border-left: 0.5px solid black;
 }
 
 .buttonWrapperLeft {
   flex: 1;
   border-top: 1px solid black;
-  border-right: 1px solid black;
+  border-right: 0.5px solid black;
   padding: 20px;
-  text-align: right;
+  text-align: center;
 }
 
 .middleButtonWrapper {
@@ -50,4 +50,5 @@
   text-decoration: none;
   color: black;
   font-size: 18px;
+  cursor: pointer;
 }

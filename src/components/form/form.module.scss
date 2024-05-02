@@ -1,3 +1,30 @@
+.slide-in {
+  animation: slideIn 1s ease forwards;
+}
+.slide-out {
+  animation: slideOut 1s ease forwards;
+}
+
+@keyframes slideIn {
+  from {
+    display: none;
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOut {
+  to {
+    display: none;
+    transform: translateY(100%);
+  }
+  from {
+    transform: translateY(0);
+  }
+}
+
 .formulario-container {
   position: fixed;
   background-color: #ffffff;
@@ -5,10 +32,11 @@
   border-radius: 16px;
   z-index: 20;
   width: 90vw;
-  bottom: 100px;
   gap: 32px;
+  bottom: 0px;
   display: flex;
   flex-direction: column;
+  max-width: 768px;
   .title {
     font-size: 20px;
     text-align: center;
@@ -21,6 +49,10 @@
     flex-direction: column;
   }
   form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     div {
       display: flex;
       flex-direction: column;
@@ -35,16 +67,20 @@
 
     input,
     select {
-      width: 100%;
       height: 48px;
       padding-top: 8px;
       padding-bottom: 8px;
       padding-left: 12px;
       padding-right: 12px;
       border: 1px solid #cfbca4;
+      max-width: 602px;
       &:focus {
         border-color: #2b3b4a;
       }
+    }
+
+    select {
+      width: 89vw;
     }
 
     input {
@@ -66,6 +102,7 @@
       cursor: pointer;
       transition: background-color 0.3s ease;
       font-size: 16px;
+      max-width: 602px;
       &:hover {
         border-color: #5b9dad;
       }
@@ -86,5 +123,104 @@
     background-color: transparent;
     cursor: pointer;
     font-size: 20px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .formulario-container {
+    position: fixed;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 16px;
+    z-index: 20;
+    width: 90vw;
+    bottom: 5vh;
+    gap: 32px;
+    display: flex;
+    flex-direction: column;
+    max-width: 768px;
+    .title {
+      font-size: 32px;
+      text-align: center;
+      line-height: 38.4px;
+      color: #2b3b4a;
+    }
+    .form {
+      gap: 32px;
+      display: flex;
+      flex-direction: column;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      div {
+        display: flex;
+        flex-direction: column;
+      }
+
+      label {
+        margin-bottom: 5px;
+        font-size: 14px;
+        line-height: 14px;
+        color: #2b3b4a;
+      }
+
+      input,
+      select {
+        height: 48px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        padding-left: 12px;
+        padding-right: 12px;
+        border: 1px solid #cfbca4;
+        max-width: 602px;
+        &:focus {
+          border-color: #2b3b4a;
+        }
+      }
+
+      input {
+        width: 84vw;
+        height: 28px;
+        margin-top: 8px;
+        &:focus {
+          border-color: #2b3b4a;
+        }
+      }
+
+      button[type="submit"] {
+        width: 100%;
+        height: 56px;
+        padding: 10px;
+        background-color: #ffffff;
+        color: #2b3b4a;
+        border: 1px solid #2b3b4a;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        font-size: 16px;
+        max-width: 602px;
+        &:hover {
+          border-color: #5b9dad;
+        }
+        &:focus {
+          background-color: #ffffff;
+        }
+        &:focus {
+          border-color: #5b9dad;
+        }
+      }
+    }
+
+    button.close-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+      font-size: 20px;
+    }
   }
 }

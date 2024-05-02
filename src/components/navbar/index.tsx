@@ -10,14 +10,9 @@ const BottomNavbar = ({ inquire }) => {
                     Inquire
                 </span>
             </div>
-            <div className={styles.middleButtonWrapper}>
-                <Link href="/" className={styles.link}>
-                    Instagram
-                </Link>
-            </div>
             <div className={styles.buttonWrapperRight}>
                 <Link href="/" className={styles.link} >
-                    Contact
+                    Instagram
                 </Link>
             </div>
         </nav>

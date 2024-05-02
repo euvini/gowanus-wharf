@@ -93,7 +93,10 @@ export default function Home() {
 
     return (
         <main className={styles.main}>
-            {showForm && <Form onClose={toggleFormulario} />}
+            {
+                showForm &&
+                <Form onClose={showForm} />
+            }
             <animated.section className={styles.logosection}>
                 <VideoBackground />
                 <IsCallingLetters />

@@ -1,31 +1,29 @@
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
+import { useEffect, useState } from 'react';
 import styles from './form.module.scss';
 
 const Form = ({ onClose }) => {
-    const formRef = useRef(null);
+    const [isVisible, setIsVisible] = useState(false);
+
+    const handleFormOpen = (onClose: boolean | ((prevState: boolean) => boolean)) => {
+        setIsVisible(onClose);
+    };
 
     useEffect(() => {
-        gsap.from(formRef.current, {
-            duration: 10000,
-            y: 100,
-            opacity: 1,
-            ease: "power3.in"
-        });
-    }, []);
+        handleFormOpen(onClose)
+    }, [onClose])
 
     return (
-        <div ref={formRef} className={styles['formulario-container']}>
-            <button onClick={onClose} className={styles['close-button']}>X</button>
+        <div className={`${styles['formulario-container']} ${isVisible ? styles['slide-in'] : styles['slide-out']}`}>
+            <button onClick={() => handleFormOpen(false)} className={styles['close-button']}>X</button>
             <h1 className={styles.title}>Leasing January 2025</h1>
-            <form className={styles.form}>
+            <form onSubmit={() => handleFormOpen(false)} className={styles.form}>
                 <div>
-                    <label htmlFor="nome">First name*</label>
-                    <input type="text" id="nome" name="nome" />
+                    <label htmlFor="name">First name*</label>
+                    <input type="text" id="name" name="name" />
                 </div>
                 <div>
-                    <label htmlFor="sobrenome">Last name*</label>
-                    <input type="text" id="sobrenome" name="sobrenome" />
+                    <label htmlFor="lastname">Last name*</label>
+                    <input type="text" id="lastname" name="lastname" />
                 </div>
                 <div>
                     <label htmlFor="email">Email*</label>
