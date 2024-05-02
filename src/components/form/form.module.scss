@@ -1,0 +1,90 @@
+.formulario-container {
+  position: fixed;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  z-index: 20;
+  width: 90vw;
+  bottom: 100px;
+  gap: 32px;
+  display: flex;
+  flex-direction: column;
+  .title {
+    font-size: 20px;
+    text-align: center;
+    line-height: 24px;
+    color: #2b3b4a;
+  }
+  .form {
+    gap: 32px;
+    display: flex;
+    flex-direction: column;
+  }
+  form {
+    div {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 5px;
+      font-size: 14px;
+      line-height: 14px;
+      color: #2b3b4a;
+    }
+
+    input,
+    select {
+      width: 100%;
+      height: 48px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      padding-left: 12px;
+      padding-right: 12px;
+      border: 1px solid #cfbca4;
+      &:focus {
+        border-color: #2b3b4a;
+      }
+    }
+
+    input {
+      width: 84vw;
+      height: 28px;
+      margin-top: 8px;
+      &:focus {
+        border-color: #2b3b4a;
+      }
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      height: 56px;
+      padding: 10px;
+      background-color: #ffffff;
+      color: #2b3b4a;
+      border: 1px solid #2b3b4a;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-size: 16px;
+      &:hover {
+        border-color: #5b9dad;
+      }
+      &:focus {
+        background-color: #ffffff;
+      }
+      &:focus {
+        border-color: #5b9dad;
+      }
+    }
+  }
+
+  button.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 20px;
+  }
+}

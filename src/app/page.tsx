@@ -10,6 +10,7 @@ import VideoBackground from '../components/background-video';
 import IsCallingLetters from '../components/gowanusIsCalling';
 import { useRouter } from 'next/navigation'
 import BottomNavbar from '../components/navbar';
+import Form from '../components/form';
 import React from 'react';
 
 export default function Home() {
@@ -18,6 +19,11 @@ export default function Home() {
     const [loading, setLoading] = useState(false);
     const router = useRouter();
     const elementRef = useRef<HTMLDivElement>(null);
+    const [showForm, setShowForm] = useState(false);
+
+    const toggleFormulario = () => {
+        setShowForm(!showForm);
+    };
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -87,6 +93,7 @@ export default function Home() {
 
     return (
         <main className={styles.main}>
+            {showForm && <Form onClose={toggleFormulario} />}
             <animated.section className={styles.logosection}>
                 <VideoBackground />
                 <IsCallingLetters />
@@ -97,7 +104,7 @@ export default function Home() {
                 <>
                     {elements}
                     {loading && <p>Loading...</p>}
-                    <BottomNavbar />
+                    <BottomNavbar inquire={toggleFormulario} />
                 </>
             }
         </main>

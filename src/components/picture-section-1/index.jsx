@@ -1,21 +1,28 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client';
 import { useState, useLayoutEffect, useRef, useEffect } from "react";
-import styles from '../../app/page.module.scss';
+import styles from '../components.module.scss';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Picture1 from '../../../public/medias/gallery/2024_GW_MVP_13_Architecture.jpg';
+import Picture1 from '../../../public/medias/gallery/2024_GW_MVP_2_UnionCafe_SR.gif';
 import Picture2 from '../../../public/medias/gallery/2024_GW_MVP_3_Demarcus.png';
-import Picture3 from '../../../public/medias/gallery/2024_GW_MVP_11_Basketball.gif';
-import Picture4 from '../../../public/medias/gallery/2024_GW_MVP_15_GowanusRecce.jpg';
+import Picture3 from '../../../public/medias/gallery/2024_GW_MVP_4_Yoga.jpg';
+import Picture4 from '../../../public/medias/gallery/2024_GW_MVP_5_JobSite.jpg';
+import Picture5 from '../../../public/medias/gallery/2024_GW_MVP_6_JenLewin.gif';
 import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger)
 
 export default function Index() {
     const container = useRef(null);
-    const images = [Picture1, Picture2, Picture3, Picture4];
-    const captions = ['caption text max', 'caption text max 2 lines lorem ipsum', 'caption text max 2 lines lorem ipsum'];
+    const images = [Picture1, Picture2, Picture3, Picture4, Picture5];
+    const captions = [
+        'caption text max 2 lines',
+        'caption text max 2 lines lorem ipsum',
+        'caption text max 2 lines lorem ipsum',
+        'caption text max 2 lines lorem ipsum',
+        'caption text max 2 lines lorem ipsum',
+    ];
     const lettersRef = useRef([])
     const imagesRef = useRef([])
     const title1 = useRef(null);
@@ -29,10 +36,10 @@ export default function Index() {
         timeout = setTimeout(() => {
             imagesRef.current.forEach((_, index) => handleImageClick(index));
             handleBodyClick();
-        }, 10);
+        }, 100);
     };
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         window.addEventListener('scroll', handleScroll);
 
         return () => {
@@ -41,7 +48,7 @@ export default function Index() {
         };
     }, []);
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         const context = gsap.context(() => {
             const tl = gsap.timeline({
                 scrollTrigger: {
@@ -82,9 +89,9 @@ export default function Index() {
 
     return (
         <div ref={container} className={styles.container}>
-            <div className={styles.body} onClick={handleBodyClick} ref={bodyRef}>
+            {/* <div className={styles.body} onClick={handleBodyClick} ref={bodyRef}>
                 <h1 ref={title1}>A new language for living</h1>
-            </div>
+            </div> */}
             <div className={styles.imagesSection1}>
                 {
                     images.map((image, i) => {
@@ -95,7 +102,7 @@ export default function Index() {
                                     alt="image"
                                     fill
                                 />
-                                <label className={styles.imageCaption}>{captions[i]}</label>
+                                <span className={styles.imageCaption}>{captions[i]}</span>
                             </div>
                         )
                     })

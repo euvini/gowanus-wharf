@@ -1,19 +1,22 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client';
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import styles from '../../app/page.module.scss';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Picture4 from '../../../public/medias/gallery/2024_GW_MVP_14_Rollerwave.gif';
-import Picture5 from '../../../public/medias/gallery/2024_GW_MVP_17_JenLewin.jpg';
-import Picture6 from '../../../public/medias/gallery/2024_GW_MVP_6_JenLewin.gif';
 import Image from "next/image";
+import styles from '../components.module.scss';
+import Picture1 from '../../../public/medias/gallery/2024_GW_MVP_7_Union.png';
+import Picture2 from '../../../public/medias/gallery/2024_GW_MVP_18_Disco.gif';
+import Picture3 from '../../../public/medias/gallery/2024_GW_MVP_9_TonyHouses.gif';
+import Picture4 from '../../../public/medias/gallery/2024_GW_MVP_10_Claro.jpg';
+import Picture5 from '../../../public/medias/gallery/2024_GW_MVP_11_Basketball.gif';
+import Picture6 from '../../../public/medias/gallery/2024_GW_MVP_12_Moonkata.jpg';
+import Picture7 from '../../../public/medias/gallery/2024_GW_MVP_13_Architecture.jpg';
+import { useLayoutEffect, useRef, useState, useEffect } from "react";
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger)
-
 export default function Index() {
     const container = useRef(null);
-    const images = [Picture4, Picture5, Picture6];
+    const images = [Picture1, Picture2, Picture3, Picture4, Picture5, Picture6, Picture7];
     const captions = ['caption text max', 'caption text max 2 lines lorem ipsum', 'caption text max 2 lines lorem ipsum'];
     const [clicked, setClicked] = useState(false);
     const lettersRef = useRef([])
@@ -87,12 +90,25 @@ export default function Index() {
             <div className={styles.imagesSection2}>
                 {
                     images.map((image, i) => {
+                        function checkImageUrlExtension(url) {
+                            const validExtensions = ['.mov', '.mp4'];
+                            return validExtensions.some(ext => url?.src?.endsWith(ext));
+                        }
+
                         return <div key={`i_${i}`} ref={el => imagesRef.current[i] = el} className={styles.imageContainerSection2} onClick={() => handleImageClick(i)}>
-                            <Image
-                                src={image}
-                                alt="image"
-                                fill
-                            />
+                            {
+                                checkImageUrlExtension(image) ?
+                                    <video autoPlay muted loop controls={false}>
+                                        <source src={image} type="video/quicktime" />
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    :
+                                    <Image
+                                        src={image}
+                                        alt="image"
+                                        fill
+                                    />
+                            }
                             <label className={styles.imageCaption}>{captions[i]}</label>
                         </div>
                     })

@@ -1,7 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
-import GSAP1 from '../../components/picture-section-1';
-import GSAP2 from '../../components/picture-section-2';
+import Section1 from '../../components/picture-section-1';
+import Section2 from '../../components/picture-section-2';
+import Section3 from '../../components/picture-section-3';
+import Section4 from '../../components/picture-section-4';
+import Section5 from '../../components/picture-section-5';
 import BackgroundColors from '../../components/backgroud-colors/index'
 import styles from '../../app/page.module.scss'
 
@@ -11,7 +14,7 @@ export default function PictureSection({ backgroundColorRef }) {
     const colors = ['#E0DED4', '#DE9280', '#5B9DAD', '#CFBCA4'];
 
     const generateNewBackgroud = () => {
-        const order = [0, 0, 1, 0, 0, 3, 0, 0, 2, 0]; // Ordem desejada das cores
+        const order = [0, 0, 1, 0, 0, 3, 0, 0, 2, 0, 0, 0]; // Ordem desejada das cores
         const newElements = [];
 
         for (let i = 0; i < 100; i++) {
@@ -59,8 +62,11 @@ export default function PictureSection({ backgroundColorRef }) {
             <div className={styles.backgroundColors}>
                 {backgrounds}
             </div>
-            <GSAP1 />
-            <GSAP2 />
+            <Section1 />
+            <Section2 />
+            <Section3 />
+            <Section4 />
+            <Section5 />
         </>
     )
 }
