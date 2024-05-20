@@ -21,6 +21,8 @@ export default function Home() {
     const elementRef = useRef<HTMLDivElement>(null);
     const [showForm, setShowForm] = useState(false);
 
+    const scrollInterval = useRef<NodeJS.Timeout | null>(null);
+
     const toggleFormulario = () => {
         setShowForm(!showForm);
     };
@@ -84,12 +86,50 @@ export default function Home() {
         const desappear = setTimeout(() => {
             window.scrollTo({
                 top: window.innerHeight,
-                behavior: 'smooth'
+                behavior: 'smooth',
             });
         }, 7000);
 
         return () => clearTimeout(desappear);
     }, []);
+
+    // AUTOSCROLL
+
+    useEffect(() => {
+        const handleMouseMove = () => {
+            if (scrollInterval.current) {
+                clearInterval(scrollInterval.current);
+                scrollInterval.current = null;
+            }
+        };
+
+        const handleMouseStop = () => {
+            scrollInterval.current = setInterval(() => {
+                window.scrollBy({ top: 1, behavior: 'smooth' });
+            }, 100); // Ajuste a velocidade da rolagem alterando o intervalo
+        };
+
+        let mouseMoveTimeout: NodeJS.Timeout;
+        const handleMouseActivity = () => {
+            clearTimeout(mouseMoveTimeout);
+            handleMouseMove();
+            mouseMoveTimeout = setTimeout(handleMouseStop, 2000);
+        };
+
+        const initial = setTimeout(() => {
+            window.addEventListener('mousemove', handleMouseActivity);
+        }, 7000);
+
+        return () => {
+            window.removeEventListener('mousemove', handleMouseActivity);
+            if (scrollInterval.current) {
+                clearInterval(scrollInterval.current);
+            }
+            clearTimeout(initial);
+        };
+    }, []);
+
+    // AUTOSCROLL
 
     return (
         <main className={styles.main}>

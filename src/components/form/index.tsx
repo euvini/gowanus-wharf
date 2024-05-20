@@ -43,7 +43,7 @@ const Form = ({ onClose }) => {
                         <option value="opcao5">Opção 5</option>
                     </select>
                 </div>
-                <button type="submit">Submit</button>
+                <button type="submit" onClick={() => { }}>Submit</button>
             </form>
         </div>
     );
