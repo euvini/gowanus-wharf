@@ -21,7 +21,7 @@ export default function Home() {
     const elementRef = useRef<HTMLDivElement>(null);
     const [showForm, setShowForm] = useState(false);
 
-    const scrollInterval = useRef<NodeJS.Timeout | null>(null);
+    // const scrollInterval = useRef<NodeJS.Timeout | null>(null);
 
     const toggleFormulario = () => {
         setShowForm(!showForm);
@@ -95,39 +95,39 @@ export default function Home() {
 
     // AUTOSCROLL
 
-    useEffect(() => {
-        const handleMouseMove = () => {
-            if (scrollInterval.current) {
-                clearInterval(scrollInterval.current);
-                scrollInterval.current = null;
-            }
-        };
+    // useEffect(() => {
+    //     const handleMouseMove = () => {
+    //         if (scrollInterval.current) {
+    //             clearInterval(scrollInterval.current);
+    //             scrollInterval.current = null;
+    //         }
+    //     };
 
-        const handleMouseStop = () => {
-            scrollInterval.current = setInterval(() => {
-                window.scrollBy({ top: 1, behavior: 'smooth' });
-            }, 10); // Ajuste a velocidade da rolagem alterando o intervalo
-        };
+    //     const handleMouseStop = () => {
+    //         scrollInterval.current = setInterval(() => {
+    //             window.scrollBy({ top: 1, behavior: 'smooth' });
+    //         }, 10); // Ajuste a velocidade da rolagem alterando o intervalo
+    //     };
 
-        let mouseMoveTimeout: NodeJS.Timeout;
-        const handleMouseActivity = () => {
-            clearTimeout(mouseMoveTimeout);
-            handleMouseMove();
-            mouseMoveTimeout = setTimeout(handleMouseStop, 2000);
-        };
+    //     let mouseMoveTimeout: NodeJS.Timeout;
+    //     const handleMouseActivity = () => {
+    //         clearTimeout(mouseMoveTimeout);
+    //         handleMouseMove();
+    //         mouseMoveTimeout = setTimeout(handleMouseStop, 2000);
+    //     };
 
-        const initial = setTimeout(() => {
-            window.addEventListener('mousemove', handleMouseActivity);
-        }, 7000);
+    //     const initial = setTimeout(() => {
+    //         window.addEventListener('mousemove', handleMouseActivity);
+    //     }, 7000);
 
-        return () => {
-            window.removeEventListener('mousemove', handleMouseActivity);
-            if (scrollInterval.current) {
-                clearInterval(scrollInterval.current);
-            }
-            clearTimeout(initial);
-        };
-    }, []);
+    //     return () => {
+    //         window.removeEventListener('mousemove', handleMouseActivity);
+    //         if (scrollInterval.current) {
+    //             clearInterval(scrollInterval.current);
+    //         }
+    //         clearTimeout(initial);
+    //     };
+    // }, []);
 
     // AUTOSCROLL
 
