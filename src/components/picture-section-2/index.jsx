@@ -10,15 +10,32 @@ import Picture4 from '../../../public/medias/gallery/2024_GW_MVP_10_Claro.jpg';
 import Picture5 from '../../../public/medias/gallery/2024_GW_MVP_11_Basketball.gif';
 import Picture6 from '../../../public/medias/gallery/2024_GW_MVP_12_Moonkata.jpg';
 import Picture7 from '../../../public/medias/gallery/2024_GW_MVP_13_Architecture.jpg';
+import DouglassPort from '../../../public/medias/gallery/DouglassPort.png';
+import NevinsLanding from '../../../public/medias/gallery/NevinsLanding.png';
+import UnionChannel from '../../../public/medias/gallery/UnionChannel.png';
 import { useLayoutEffect, useRef, useState, useEffect } from "react";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger)
 export default function Index() {
     const container = useRef(null);
-    const images = [Picture1, Picture2, Picture3, Picture4, Picture5, Picture6, Picture7];
+    const images = [
+        Picture1,
+        DouglassPort,
+        NevinsLanding,
+        UnionChannel,
+        Picture2,
+        Picture3,
+        Picture4,
+        Picture5,
+        Picture6,
+        Picture7
+    ];
     const captions = [
         "WE'VE GOT BIG PLANS",
+        "",
+        "",
+        "",
         'WHAT CAN YOU SEE FROM YOUR ROOF? ',
         'TINY HOUSES BY ARTS GOWANUS ARTIST TONY STANZIONE',
         'LOCAL EATS ABOUND',
