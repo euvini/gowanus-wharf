@@ -76,7 +76,7 @@ export default function Home() {
 
     const generateNewElements = () => {
         const newElements = [];
-        for (let i = 0; i < 50; i++) { //renderiza até 100 vezes
+        for (let i = 0; i < 5; i++) { //renderiza até 100 vezes
             newElements.push(<PictureSection backgroundColorRef={elementRef} key={elements.length + i} />);
         }
         return newElements;

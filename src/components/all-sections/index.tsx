@@ -17,7 +17,7 @@ export default function PictureSection({ backgroundColorRef }) {
         const order = [0, 0, 1, 1, 0, 0, 0, 3, 3, 0, 0, 0, 0, 2, 2, 0, 0, 0]; // Ordem desejada das cores
         const newElements = [];
 
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < 5; i++) {
             const index = order[i % order.length]; // Usa o módulo para repetir a ordem
             newElements.push(
                 <BackgroundColors
