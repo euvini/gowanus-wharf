@@ -235,6 +235,7 @@
       text-align: center;
     }
   }
+
   .imagesSection1 {
     display: flex;
     width: 100%;
@@ -245,11 +246,25 @@
     flex-direction: column;
     align-items: center;
     gap: 120px;
+
     .imageContainerSection1 {
       img {
         object-fit: cover;
         transition: transform 0.8s ease-in-out;
-        &:hover {
+      }
+
+      span {
+        transition: transform 0.8s ease-in-out, margin-top 0.8s ease-in-out,
+          margin-left 0.8s ease-in-out;
+      }
+
+      &:hover {
+        img {
+          transform: scale(1.05);
+        }
+        span {
+          margin-top: 20px;
+          margin-left: -5px;
           transform: scale(1.05);
         }
       }
@@ -301,7 +316,20 @@
       img {
         object-fit: cover;
         transition: transform 0.8s ease-in-out;
-        &:hover {
+      }
+
+      span {
+        transition: transform 0.8s ease-in-out, margin-top 0.8s ease-in-out,
+          margin-left 0.8s ease-in-out;
+      }
+
+      &:hover {
+        img {
+          transform: scale(1.05);
+        }
+        span {
+          margin-top: 20px;
+          margin-left: -5px;
           transform: scale(1.05);
         }
       }
@@ -363,7 +391,20 @@
       img {
         object-fit: cover;
         transition: transform 0.8s ease-in-out;
-        &:hover {
+      }
+
+      span {
+        transition: transform 0.8s ease-in-out, margin-top 0.8s ease-in-out,
+          margin-left 0.8s ease-in-out;
+      }
+
+      &:hover {
+        img {
+          transform: scale(1.05);
+        }
+        span {
+          margin-top: 20px;
+          margin-left: -5px;
           transform: scale(1.05);
         }
       }
@@ -414,7 +455,20 @@
       img {
         object-fit: cover;
         transition: transform 0.8s ease-in-out;
-        &:hover {
+      }
+
+      span {
+        transition: transform 0.8s ease-in-out, margin-top 0.8s ease-in-out,
+          margin-left 0.8s ease-in-out;
+      }
+
+      &:hover {
+        img {
+          transform: scale(1.05);
+        }
+        span {
+          margin-top: 20px;
+          margin-left: -5px;
           transform: scale(1.05);
         }
       }
@@ -445,7 +499,20 @@
       img {
         object-fit: cover;
         transition: transform 0.8s ease-in-out;
-        &:hover {
+      }
+
+      span {
+        transition: transform 0.8s ease-in-out, margin-top 0.8s ease-in-out,
+          margin-left 0.8s ease-in-out;
+      }
+
+      &:hover {
+        img {
+          transform: scale(1.05);
+        }
+        span {
+          margin-top: 20px;
+          margin-left: -5px;
           transform: scale(1.05);
         }
       }
@@ -498,7 +565,20 @@
       img {
         object-fit: cover;
         transition: transform 0.8s ease-in-out;
-        &:hover {
+      }
+
+      span {
+        transition: transform 0.8s ease-in-out, margin-top 0.8s ease-in-out,
+          margin-left 0.8s ease-in-out;
+      }
+
+      &:hover {
+        img {
+          transform: scale(1.05);
+        }
+        span {
+          margin-top: 20px;
+          margin-left: -5px;
           transform: scale(1.05);
         }
       }
@@ -550,7 +630,20 @@
       img {
         object-fit: cover;
         transition: transform 0.8s ease-in-out;
-        &:hover {
+      }
+
+      span {
+        transition: transform 0.8s ease-in-out, margin-top 0.8s ease-in-out,
+          margin-left 0.8s ease-in-out;
+      }
+
+      &:hover {
+        img {
+          transform: scale(1.05);
+        }
+        span {
+          margin-top: 20px;
+          margin-left: -5px;
           transform: scale(1.05);
         }
       }
@@ -612,7 +705,20 @@
       img {
         object-fit: cover;
         transition: transform 0.8s ease-in-out;
-        &:hover {
+      }
+
+      span {
+        transition: transform 0.8s ease-in-out, margin-top 0.8s ease-in-out,
+          margin-left 0.8s ease-in-out;
+      }
+
+      &:hover {
+        img {
+          transform: scale(1.05);
+        }
+        span {
+          margin-top: 20px;
+          margin-left: -5px;
           transform: scale(1.05);
         }
       }
@@ -663,7 +769,20 @@
       img {
         object-fit: cover;
         transition: transform 0.8s ease-in-out;
-        &:hover {
+      }
+
+      span {
+        transition: transform 0.8s ease-in-out, margin-top 0.8s ease-in-out,
+          margin-left 0.8s ease-in-out;
+      }
+
+      &:hover {
+        img {
+          transform: scale(1.05);
+        }
+        span {
+          margin-top: 20px;
+          margin-left: -5px;
           transform: scale(1.05);
         }
       }
@@ -694,7 +813,20 @@
       img {
         object-fit: cover;
         transition: transform 0.8s ease-in-out;
-        &:hover {
+      }
+
+      span {
+        transition: transform 0.8s ease-in-out, margin-top 0.8s ease-in-out,
+          margin-left 0.8s ease-in-out;
+      }
+
+      &:hover {
+        img {
+          transform: scale(1.05);
+        }
+        span {
+          margin-top: 20px;
+          margin-left: -5px;
           transform: scale(1.05);
         }
       }

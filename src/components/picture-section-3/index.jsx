@@ -114,7 +114,7 @@ export default function Index() {
                                         loading="lazy"
                                     />
                             }
-                            <label className={styles.imageCaption}>{captions[i]}</label>
+                            <span className={styles.imageCaption}>{captions[i]}</span>
                         </div>
                     })
                 }
