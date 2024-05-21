@@ -17,11 +17,11 @@ export default function Index() {
     const container = useRef(null);
     const images = [Picture1, Picture2, Picture3, Picture4, Picture5];
     const captions = [
-        'caption text max 2 lines',
-        'caption text max 2 lines lorem ipsum',
-        'caption text max 2 lines lorem ipsum',
-        'caption text max 2 lines lorem ipsum',
-        'caption text max 2 lines lorem ipsum',
+        'START YOUR DAY RIGHT IN GOWNAUS',
+        'ARTS GOWANUS MEMBER - DEMARCUS MCGAUGHEY ',
+        'FIND YOUR BALANCE IN GOWANUS',
+        'THE PEOPLE BRINGING THE WHARF TO LIFE',
+        'JEN LEWIN ART INSTALLATION COMING TO GOWANUS WHARF',
     ];
     const lettersRef = useRef([])
     const imagesRef = useRef([])
@@ -101,6 +101,7 @@ export default function Index() {
                                     src={image}
                                     alt="image"
                                     fill
+                                    loading="lazy"
                                 />
                                 <span className={styles.imageCaption}>{captions[i]}</span>
                             </div>

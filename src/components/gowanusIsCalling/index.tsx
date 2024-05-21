@@ -13,7 +13,10 @@ export default function IsCallingLetters() {
     }, []);
     return (
         <div style={{ zIndex: isVisible ? 0 : 10 }}>
-            <Image width={341} height={232} src="/medias/GWAIC.png" alt="gowanus is calling" />
+            {
+                !isVisible &&
+                <Image width={341} height={232} src="/medias/GWAIC.png" alt="gowanus is calling" />
+            }
         </div>
     )
 }

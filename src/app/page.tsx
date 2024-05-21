@@ -76,7 +76,7 @@ export default function Home() {
 
     const generateNewElements = () => {
         const newElements = [];
-        for (let i = 0; i < 100; i++) { //renderiza até 100 vezes
+        for (let i = 0; i < 50; i++) { //renderiza até 100 vezes
             newElements.push(<PictureSection backgroundColorRef={elementRef} key={elements.length + i} />);
         }
         return newElements;
@@ -106,7 +106,7 @@ export default function Home() {
         const handleMouseStop = () => {
             scrollInterval.current = setInterval(() => {
                 window.scrollBy({ top: 1, behavior: 'smooth' });
-            }, 100); // Ajuste a velocidade da rolagem alterando o intervalo
+            }, 10); // Ajuste a velocidade da rolagem alterando o intervalo
         };
 
         let mouseMoveTimeout: NodeJS.Timeout;

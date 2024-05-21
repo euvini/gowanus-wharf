@@ -4,7 +4,7 @@ import gsap from 'gsap';
 import Image from "next/image";
 import styles from '../components.module.scss';
 import Picture1 from '../../../public/medias/gallery/2024_GW_MVP_7_Union.png';
-import Picture2 from '../../../public/medias/gallery/2024_GW_MVP_18_Disco.gif';
+import Picture2 from '../../../public/medias/gallery/2024_GW_MVP_8_JobSite.gif';
 import Picture3 from '../../../public/medias/gallery/2024_GW_MVP_9_TonyHouses.gif';
 import Picture4 from '../../../public/medias/gallery/2024_GW_MVP_10_Claro.jpg';
 import Picture5 from '../../../public/medias/gallery/2024_GW_MVP_11_Basketball.gif';
@@ -17,7 +17,15 @@ gsap.registerPlugin(ScrollTrigger)
 export default function Index() {
     const container = useRef(null);
     const images = [Picture1, Picture2, Picture3, Picture4, Picture5, Picture6, Picture7];
-    const captions = ['caption text max', 'caption text max 2 lines lorem ipsum', 'caption text max 2 lines lorem ipsum'];
+    const captions = [
+        "WE'VE GOT BIG PLANS",
+        'WHAT CAN YOU SEE FROM YOUR ROOF? ',
+        'TINY HOUSES BY ARTS GOWANUS ARTIST TONY STANZIONE',
+        'LOCAL EATS ABOUND',
+        'NOTHIN BUT NET',
+        'ARTIST DUO MOONTAKA MAKE ART THAT WILL MAKE YOU HAPPY'
+    ];
+
     const [clicked, setClicked] = useState(false);
     const lettersRef = useRef([])
     const imagesRef = useRef([])
@@ -107,6 +115,7 @@ export default function Index() {
                                         src={image}
                                         alt="image"
                                         fill
+                                        loading="lazy"
                                     />
                             }
                             <label className={styles.imageCaption}>{captions[i]}</label>

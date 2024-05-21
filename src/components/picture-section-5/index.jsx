@@ -104,6 +104,7 @@ export default function Index() {
                                         src={image}
                                         alt="image"
                                         fill
+                                        loading="lazy"
                                     />
                             }
                             <label className={styles.imageCaption}>{captions[i]}</label>

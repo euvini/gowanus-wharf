@@ -3,24 +3,19 @@
 import gsap from 'gsap';
 import Image from "next/image";
 import styles from '../components.module.scss';
-import Picture1 from '../../../public/medias/gallery/2024_GW_MVP_14_Rollerwave.gif';
-import Picture2 from '../../../public/medias/gallery/2024_GW_MVP_15_GowanusRecce.jpg';
-import Picture3 from '../../../public/medias/gallery/2024_GW_MVP_16_Dogs.jpg';
-import Picture4 from '../../../public/medias/gallery/2024_GW_MVP_17_JenLewin.jpg';
-import Picture5 from '../../../public/medias/gallery/2024_GW_MVP_18_Disco.gif';
 import Picture6 from '../../../public/medias/gallery/2024_GW_MVP_19_Andrew.gif';
 import Picture7 from '../../../public/medias/gallery/2024_GW_MVP_20_Rollerwave.gif';
-import Picture8 from '../../../public/medias/gallery/2024_GW_MVP_21_Sunrise.gif';
 import { useLayoutEffect, useRef, useState, useEffect } from "react";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger)
 export default function Index() {
     const container = useRef(null);
-    const images = [Picture1, Picture2, Picture3, Picture4, Picture5];
     const images2 = [Picture6, Picture7];
-    const images3 = [Picture8];
-    const captions = ['caption text max', 'caption text max 2 lines lorem ipsum', 'caption text max 2 lines lorem ipsum'];
+    const captions = [
+        "DO YOU KNOW HOW YO PLAY SHUFFLEBOARD? COME AND LEARN.",
+        '',
+    ];
     const [clicked, setClicked] = useState(false);
     const lettersRef = useRef([])
     const imagesRef = useRef([])
@@ -110,6 +105,7 @@ export default function Index() {
                                         src={image}
                                         alt="image"
                                         fill
+                                        loading="lazy"
                                     />
                             }
                             <label className={styles.imageCaption}>{captions[i]}</label>
