@@ -4,6 +4,9 @@ import { useState, useLayoutEffect, useRef, useEffect } from "react";
 import styles from '../components.module.scss';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import DouglassPort from '../../../public/medias/gallery/DouglassPort.png';
+import NevinsLanding from '../../../public/medias/gallery/NevinsLanding.png';
+import UnionChannel from '../../../public/medias/gallery/UnionChannel.png';
 import Picture1 from '../../../public/medias/gallery/2024_GW_MVP_2_UnionCafe_SR.gif';
 import Picture2 from '../../../public/medias/gallery/2024_GW_MVP_3_Demarcus.png';
 import Picture3 from '../../../public/medias/gallery/2024_GW_MVP_4_Yoga.jpg';
@@ -15,8 +18,11 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default function Index() {
     const container = useRef(null);
-    const images = [Picture1, Picture2, Picture3, Picture4, Picture5];
+    const images = [DouglassPort, NevinsLanding, UnionChannel, Picture1, Picture2, Picture3, Picture4, Picture5];
     const captions = [
+        '',
+        '',
+        '',
         'START YOUR DAY RIGHT IN GOWNAUS',
         'ARTS GOWANUS MEMBER - DEMARCUS MCGAUGHEY ',
         'FIND YOUR BALANCE IN GOWANUS',

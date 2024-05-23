@@ -34,13 +34,12 @@ const Form = ({ onClose }) => {
                     <input type="text" id="zipcode" name="zipcode" />
                 </div>
                 <div>
-                    <label htmlFor="opcoes">Residence type of Interest*</label>
+                    <label htmlFor="opcoes">Residence type of interest*</label>
                     <select id="opcoes" name="opcoes">
-                        <option value="opcao1">Opção 1</option>
-                        <option value="opcao2">Opção 2</option>
-                        <option value="opcao3">Opção 3</option>
-                        <option value="opcao4">Opção 4</option>
-                        <option value="opcao5">Opção 5</option>
+                        <option value="studio">Studio</option>
+                        <option value="1 bed">1 bed</option>
+                        <option value="2 bed">2 bed</option>
+                        <option value="3 bed">3 bed</option>
                     </select>
                 </div>
                 <button type="submit" onClick={() => { }}>Submit</button>
