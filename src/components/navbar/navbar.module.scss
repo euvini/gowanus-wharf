@@ -12,23 +12,23 @@
 
 .buttonWrapperRight {
   flex: 1;
-  border-top: 1px solid black;
+  border-top: 1px solid #2b3b4a;
   padding: 20px;
   text-align: center;
-  border-left: 0.5px solid black;
+  border-left: 0.5px solid #2b3b4a;
 }
 
 .buttonWrapperLeft {
   flex: 1;
-  border-top: 1px solid black;
-  border-right: 0.5px solid black;
+  border-top: 1px solid #2b3b4a;
+  border-right: 0.5px solid #2b3b4a;
   padding: 20px;
   text-align: center;
 }
 
 .middleButtonWrapper {
   max-width: 400px;
-  border-top: 1px solid black;
+  border-top: 1px solid #2b3b4a;
   padding: 20px;
 }
 
@@ -37,7 +37,7 @@
   display: block;
   text-align: center;
   padding: 20px;
-  color: black;
+  color: #2b3b4a;
   text-decoration: none;
 }
 
@@ -48,7 +48,7 @@
 
 .link {
   text-decoration: none;
-  color: black;
+  color: #2b3b4a;
   font-size: 18px;
   cursor: pointer;
   &:hover {
