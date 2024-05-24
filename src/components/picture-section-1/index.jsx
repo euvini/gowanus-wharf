@@ -23,11 +23,11 @@ export default function Index() {
         '',
         '',
         '',
-        'START YOUR DAY RIGHT IN GOWNAUS',
-        'ARTS GOWANUS MEMBER - DEMARCUS MCGAUGHEY ',
+        'GOOD MORNINGS FROM GOWANUS',
+        'ARTIST DEMARCUS MCGAUGHEY, AT HIS STUDIO.',
         'FIND YOUR BALANCE IN GOWANUS',
-        'THE PEOPLE BRINGING THE WHARF TO LIFE',
-        'JEN LEWIN ART INSTALLATION COMING TO GOWANUS WHARF',
+        'ON SITE AT 585 UNION',
+        'ARTIST JEN LEWIN, AT WORK WITH [NAME OF ART PIECE HERE]',
     ];
     const lettersRef = useRef([])
     const imagesRef = useRef([])

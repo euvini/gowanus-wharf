@@ -13,7 +13,7 @@ export default function Index() {
     const container = useRef(null);
     const images2 = [Picture6, Picture7];
     const captions = [
-        "DO YOU KNOW HOW YO PLAY SHUFFLEBOARD? COME AND LEARN.",
+        "",
         '',
     ];
     const [clicked, setClicked] = useState(false);

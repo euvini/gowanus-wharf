@@ -16,10 +16,10 @@ export default function Index() {
     const container = useRef(null);
     const images = [Picture1, Picture2, Picture3, Picture4, Picture5];
     const captions = [
-        "SKATE AND SMILE WITH ROLLERWAVE BROOKLYN",
+        "ROLLERWAVE, BROOKLYN",
         '',
-        'WHAT IS YOUR DOGS NAME?',
-        'JOIN THE BEAR AT GOWANUS WHARF.',
+        '',
+        '',
         '',
     ];
     const [clicked, setClicked] = useState(false);

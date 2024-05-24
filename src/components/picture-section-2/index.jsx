@@ -26,12 +26,12 @@ export default function Index() {
         Picture7
     ];
     const captions = [
-        "WE'VE GOT BIG PLANS",
-        'WHAT CAN YOU SEE FROM YOUR ROOF? ',
+        "BIG PLANS FOR GOWANUS",
+        '',
         'TINY HOUSES BY ARTS GOWANUS ARTIST TONY STANZIONE',
-        'LOCAL EATS ABOUND',
-        'NOTHIN BUT NET',
-        'ARTIST DUO MOONTAKA MAKE ART THAT WILL MAKE YOU HAPPY'
+        'MICHELIN STAR, CLARO',
+        '',
+        'ARTIST DUO, MOONTAKA'
     ];
 
     const [clicked, setClicked] = useState(false);
