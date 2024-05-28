@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client';
-import { useState, useLayoutEffect, useRef, useEffect } from "react";
+
+import { useState, useEffect, useRef } from "react";
 import styles from '../components.module.scss';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -14,26 +15,26 @@ import Picture4 from '../../../public/medias/gallery/2024_GW_MVP_5_JobSite.jpg';
 import Picture5 from '../../../public/medias/gallery/2024_GW_MVP_6_JenLewin.gif';
 import Image from "next/image";
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
-export default function Index() {
-    const container = useRef(null);
+const Index = () => {
+    const containerRef = useRef(null);
     const images = [DouglassPort, NevinsLanding, UnionChannel, Picture1, Picture2, Picture3, Picture4, Picture5];
     const captions = [
         '',
         '',
         '',
         'GOOD MORNINGS FROM GOWANUS',
-        'ARTIST DEMARCUS MCGAUGHEY, AT HIS STUDIO.',
+        'ARTIST DEMARCUS MCGAUGHEY, AT HIS STUDIO',
         'FIND YOUR BALANCE IN GOWANUS',
         'ON SITE AT 585 UNION',
-        'ARTIST JEN LEWIN, AT WORK WITH [NAME OF ART PIECE HERE]',
+        'Artist Jen Lewin, at her studio ',
     ];
-    const lettersRef = useRef([])
-    const imagesRef = useRef([])
-    const title1 = useRef(null);
-    const [clicked, setClicked] = useState(false);
+    const lettersRef = useRef([]);
+    const imagesRef = useRef([]);
+    const titleRef = useRef(null);
     const bodyRef = useRef(null);
+    const [clicked, setClicked] = useState(false);
 
     let timeout;
 
@@ -47,7 +48,6 @@ export default function Index() {
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
-
         return () => {
             clearTimeout(timeout);
             window.removeEventListener('scroll', handleScroll);
@@ -58,24 +58,25 @@ export default function Index() {
         const context = gsap.context(() => {
             const tl = gsap.timeline({
                 scrollTrigger: {
-                    trigger: container.current,
+                    trigger: containerRef.current,
                     start: "top bottom",
                     end: "bottom top",
                     scrub: true,
                 },
             })
-                .to(title1.current, { y: -10 }, 0)
+                .to(titleRef.current, { y: -10 }, 0)
                 .to(imagesRef.current[1], { y: -30 }, 0)
-                .to(imagesRef.current[2], { y: -60 }, 0)
-            lettersRef.current.forEach((letter, i) => {
+                .to(imagesRef.current[2], { y: -60 }, 0);
+
+            lettersRef.current.forEach((letter) => {
                 tl.to(letter, {
                     top: Math.floor(Math.random() * -75) - 25,
-                }, 0)
-            })
+                }, 0);
+            });
+        });
 
-        })
         return () => context.revert();
-    }, [])
+    }, []);
 
     const handleImageClick = (index) => {
         gsap.to(imagesRef.current[index], { scale: 1.05 });
@@ -93,28 +94,34 @@ export default function Index() {
         }, 1000);
     };
 
+    useEffect(() => {
+        // Apply initial styles
+        imagesRef.current.forEach((_, index) => handleImageClick(index));
+        handleBodyClick();
+    }, []);
+
     return (
-        <div ref={container} className={styles.container}>
-            {/* <div className={styles.body} onClick={handleBodyClick} ref={bodyRef}>
-                <h1 ref={title1}>A new language for living</h1>
-            </div> */}
+        <div ref={containerRef} className={styles.container}>
             <div className={styles.imagesSection1}>
-                {
-                    images.map((image, i) => {
-                        return (
-                            <div key={`i_${i}`} ref={el => imagesRef.current[i] = el} className={styles.imageContainerSection1} onClick={() => handleImageClick(i)}>
-                                <Image
-                                    src={image}
-                                    alt="image"
-                                    fill
-                                    loading="lazy"
-                                />
-                                <span className={styles.imageCaption}>{captions[i]}</span>
-                            </div>
-                        )
-                    })
-                }
+                {images.map((image, i) => (
+                    <div
+                        key={`i_${i}`}
+                        ref={el => imagesRef.current[i] = el}
+                        className={styles.imageContainerSection1}
+                        onClick={() => handleImageClick(i)}
+                    >
+                        <Image
+                            src={image}
+                            alt="image"
+                            layout="fill"
+                            loading="lazy"
+                        />
+                        <span className={styles.imageCaption}>{captions[i]}</span>
+                    </div>
+                ))}
             </div>
         </div>
-    )
-}
+    );
+};
+
+export default Index;

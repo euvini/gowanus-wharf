@@ -11,8 +11,10 @@ const BottomNavbar = ({ inquire }) => {
                 </span>
             </div>
             <div className={styles.buttonWrapperRight}>
-                <Link href="/" className={styles.link} >
-                    Instagram
+                <Link href="https://www.instagram.com/gowanuswharf" passHref legacyBehavior >
+                    <a target="_blank" rel="noopener noreferrer" className={styles.link}>
+                        Instagram
+                    </a>
                 </Link>
             </div>
         </nav>

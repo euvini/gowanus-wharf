@@ -1,22 +1,32 @@
 import { useEffect, useState } from 'react';
 import styles from './form.module.scss';
+import { FormStateStore } from '../../store/formState';
 
-const Form = ({ onClose }) => {
-    const [isVisible, setIsVisible] = useState(false);
+interface FormProps {
+    onClose: boolean;
+}
 
-    const handleFormOpen = (onClose: boolean | ((prevState: boolean) => boolean)) => {
-        setIsVisible(onClose);
+const Form: React.FC<FormProps> = ({ onClose }) => {
+    const { isOpen, setIsOpen } = FormStateStore()
+
+    const handleFormOpen = (visibility: boolean) => {
+        setIsOpen(visibility);
+    };
+
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        handleFormOpen(false);
     };
 
     useEffect(() => {
-        handleFormOpen(onClose)
-    }, [onClose])
+        handleFormOpen(onClose);
+    }, [onClose]);
 
     return (
-        <div className={`${styles['formulario-container']} ${isVisible ? styles['slide-in'] : styles['slide-out']}`}>
+        <div className={`${styles['formulario-container']} ${isOpen ? styles['slide-in'] : styles['slide-out']}`}>
             <button onClick={() => handleFormOpen(false)} className={styles['close-button']}>X</button>
             <h1 className={styles.title}>Leasing January 2025</h1>
-            <form onSubmit={() => handleFormOpen(false)} className={styles.form}>
+            <form method="POST" onSubmit={handleSubmit} className={styles.form}>
                 <div>
                     <label htmlFor="name">First name*</label>
                     <input type="text" id="name" name="name" />
@@ -42,7 +52,7 @@ const Form = ({ onClose }) => {
                         <option value="3 bed">3 bed</option>
                     </select>
                 </div>
-                <button type="submit" onClick={() => { }}>Submit</button>
+                <button type="submit">Submit</button>
             </form>
         </div>
     );

@@ -12,19 +12,20 @@ import { useRouter } from 'next/navigation'
 import BottomNavbar from '../components/navbar';
 import Form from '../components/form';
 import React from 'react';
+import { FormStateStore } from '../store/formState';
 
 export default function Home() {
+    const { isOpen, setIsOpen } = FormStateStore()
+    const [showForm, setShowForm] = useState(false);
     const [elements, setElements] = useState([]);
     const [scrollEnabled, setScrollEnabled] = useState<boolean>(false);
     const [loading, setLoading] = useState(false);
     const router = useRouter();
     const elementRef = useRef<HTMLDivElement>(null);
-    const [showForm, setShowForm] = useState(false);
-
-    // const scrollInterval = useRef<NodeJS.Timeout | null>(null);
 
     const toggleFormulario = () => {
-        setShowForm(!showForm);
+        setIsOpen(!isOpen);
+        setShowForm(true)
     };
 
     useEffect(() => {
@@ -93,50 +94,13 @@ export default function Home() {
         return () => clearTimeout(desappear);
     }, []);
 
-    // AUTOSCROLL
-
-    // useEffect(() => {
-    //     const handleMouseMove = () => {
-    //         if (scrollInterval.current) {
-    //             clearInterval(scrollInterval.current);
-    //             scrollInterval.current = null;
-    //         }
-    //     };
-
-    //     const handleMouseStop = () => {
-    //         scrollInterval.current = setInterval(() => {
-    //             window.scrollBy({ top: 1, behavior: 'smooth' });
-    //         }, 10); // Ajuste a velocidade da rolagem alterando o intervalo
-    //     };
-
-    //     let mouseMoveTimeout: NodeJS.Timeout;
-    //     const handleMouseActivity = () => {
-    //         clearTimeout(mouseMoveTimeout);
-    //         handleMouseMove();
-    //         mouseMoveTimeout = setTimeout(handleMouseStop, 2000);
-    //     };
-
-    //     const initial = setTimeout(() => {
-    //         window.addEventListener('mousemove', handleMouseActivity);
-    //     }, 7000);
-
-    //     return () => {
-    //         window.removeEventListener('mousemove', handleMouseActivity);
-    //         if (scrollInterval.current) {
-    //             clearInterval(scrollInterval.current);
-    //         }
-    //         clearTimeout(initial);
-    //     };
-    // }, []);
-
-    // AUTOSCROLL
-
     return (
         <main className={styles.main}>
             {
                 showForm &&
-                <Form onClose={showForm} />
+                (<Form onClose={isOpen} />)
             }
+
             <animated.section className={styles.logosection}>
                 <VideoBackground />
                 <IsCallingLetters />
