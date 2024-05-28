@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client'
+
 import { useEffect, useRef, useState } from 'react';
 import { animated } from 'react-spring';
 import styles from './page.module.scss';
